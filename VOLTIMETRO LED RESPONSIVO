@@ -1,0 +1,74 @@
+void setup() {
+
+  Serial.begin(9600);
+  pinMode(13,OUTPUT);
+  pinMode(12,OUTPUT);
+  pinMode(11,OUTPUT);
+  pinMode(10,OUTPUT);
+  pinMode(9,OUTPUT);
+  pinMode(8,OUTPUT);
+  pinMode(7,OUTPUT);
+}
+
+void loop() {
+
+  Serial.println(analogRead(A0));
+  if(analogRead(A0) > 20){
+    digitalWrite(13,HIGH);
+  }
+
+  if(analogRead(A0) < 20){
+    digitalWrite(13,LOW);
+  }
+
+  if(analogRead(A0) > 160){
+    digitalWrite(12,HIGH);
+  }
+
+  if(analogRead(A0) < 160){
+    digitalWrite(12,LOW);
+  }
+
+  if(analogRead(A0) > 300){
+    digitalWrite(11,HIGH);
+  }
+
+  if(analogRead(A0) < 300){
+    digitalWrite(11,LOW);
+  }
+
+  if(analogRead(A0) > 440){
+    digitalWrite(10,HIGH);
+  }
+
+  if(analogRead(A0) < 440){
+    digitalWrite(10,LOW);
+  }
+
+  if(analogRead(A0) > 680){
+    digitalWrite(9,HIGH);
+  }
+
+  if(analogRead(A0) < 680){
+    digitalWrite(9,LOW);
+  }
+
+  if(analogRead(A0) > 820){
+    digitalWrite(8,HIGH);
+  }
+
+  if(analogRead(A0) < 820){
+    digitalWrite(8,LOW);
+  }
+
+  if(analogRead(A0) > 960){
+    digitalWrite(7,HIGH);
+  }
+
+  if(analogRead(A0) < 960){
+    digitalWrite(7,LOW);
+  }
+
+  
+
+}
