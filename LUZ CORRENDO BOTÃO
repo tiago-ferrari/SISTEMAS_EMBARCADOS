@@ -1,0 +1,35 @@
+int button_var = 13;
+
+void setup() {
+  
+
+  pinMode(13,OUTPUT);
+  pinMode(12,OUTPUT);
+  pinMode(11,OUTPUT);
+  pinMode(10,OUTPUT);
+  pinMode(9,OUTPUT);
+  pinMode(8,OUTPUT);
+  pinMode(7,OUTPUT);
+
+}
+
+void loop() {
+
+  if(digitalRead(2) == HIGH){
+    digitalWrite(button_var,HIGH);
+    while(digitalRead(2) == HIGH) delay(15);
+ 
+  }
+ if(digitalRead(2) == LOW){
+    
+    digitalWrite(button_var,LOW);
+    while(digitalRead(2) == LOW) delay(15);
+    button_var--;
+    if(button_var == 6) button_var = 13;
+  }
+  
+  
+
+  
+  
+}
