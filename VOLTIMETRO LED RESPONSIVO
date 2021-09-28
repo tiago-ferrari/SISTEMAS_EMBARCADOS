@@ -1,4 +1,4 @@
-void setup() {
+vvoid setup() {
 
   Serial.begin(9600);
   pinMode(13,OUTPUT);
@@ -13,59 +13,59 @@ void setup() {
 void loop() {
 
   Serial.println(analogRead(A0));
-  if(analogRead(A0) > 20){
+  if(analogRead(A0) > 145){
     digitalWrite(13,HIGH);
   }
 
-  if(analogRead(A0) < 20){
+  if(analogRead(A0) < 145){
     digitalWrite(13,LOW);
   }
 
-  if(analogRead(A0) > 160){
+  if(analogRead(A0) > 290){
     digitalWrite(12,HIGH);
   }
 
-  if(analogRead(A0) < 160){
+  if(analogRead(A0) < 290){
     digitalWrite(12,LOW);
   }
 
-  if(analogRead(A0) > 300){
+  if(analogRead(A0) > 435){
     digitalWrite(11,HIGH);
   }
 
-  if(analogRead(A0) < 300){
+  if(analogRead(A0) < 435){
     digitalWrite(11,LOW);
   }
 
-  if(analogRead(A0) > 440){
+  if(analogRead(A0) > 580){
     digitalWrite(10,HIGH);
   }
 
-  if(analogRead(A0) < 440){
+  if(analogRead(A0) < 580){
     digitalWrite(10,LOW);
   }
 
-  if(analogRead(A0) > 680){
+  if(analogRead(A0) > 725){
     digitalWrite(9,HIGH);
   }
 
-  if(analogRead(A0) < 680){
+  if(analogRead(A0) < 725){
     digitalWrite(9,LOW);
   }
 
-  if(analogRead(A0) > 820){
+  if(analogRead(A0) > 870){
     digitalWrite(8,HIGH);
   }
 
-  if(analogRead(A0) < 820){
+  if(analogRead(A0) < 870){
     digitalWrite(8,LOW);
   }
 
-  if(analogRead(A0) > 960){
+  if(analogRead(A0) > 1022){
     digitalWrite(7,HIGH);
   }
 
-  if(analogRead(A0) < 960){
+  if(analogRead(A0) < 1022){
     digitalWrite(7,LOW);
   }
 
