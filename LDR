@@ -1,0 +1,21 @@
+const int ledPin =  13;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+
+  Serial.println(analogRead(A0));
+
+  if(analogRead(A0) < 280){
+    digitalWrite(ledPin, LOW);
+  }
+
+  if(analogRead(A0) > 280){
+    digitalWrite(ledPin, HIGH);
+  }
+  
+
+}
