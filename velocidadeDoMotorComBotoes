@@ -1,0 +1,88 @@
+int led;
+int pot;
+int conv;
+int conv2;
+int vel =0;
+
+void setup() {
+  
+  Serial.begin(9600);
+  pinMode(13,OUTPUT);
+  pinMode(12,OUTPUT);
+  pinMode(11,OUTPUT);
+  pinMode(10,OUTPUT);
+  pinMode(9,OUTPUT);
+  pinMode(8,OUTPUT);
+  pinMode(7,OUTPUT);
+  pinMode(6,INPUT);
+  pinMode(5,INPUT);
+  pinMode(3,OUTPUT);
+  
+}
+
+// the loop function runs over and over again forever
+void loop() {
+  
+  pot =  analogRead(A0);
+  conv2 = map(pot,0,1023,255,0);
+  conv = map(vel,0,1023,255,0);
+  Serial.println(pot);
+  if(digitalRead(6) == HIGH && vel < 1023){
+    vel++;
+  }
+  if(digitalRead(5) == HIGH && vel > 0){
+    vel--;
+  }
+  Serial.println(vel);
+  if(conv < conv2){
+    conv = conv2;
+  }
+  analogWrite(3,conv);
+
+ Serial.println(conv);
+
+ if(conv < 219){
+  digitalWrite(13,HIGH);
+ }else{
+  digitalWrite(13,LOW);
+ }
+
+ if(conv < 183){
+  digitalWrite(13,HIGH);
+ }else{
+  digitalWrite(12,LOW);
+ }
+
+ if(conv < 147){
+  digitalWrite(11,HIGH);
+ }else{
+  digitalWrite(11,LOW);
+ }
+
+ if(conv < 111){
+  digitalWrite(10,HIGH);
+ }else{
+  digitalWrite(10,LOW);
+ }
+
+ if(conv < 75){
+  digitalWrite(9,HIGH);
+ }else{
+  digitalWrite(9,LOW);
+ }
+
+ if(conv < 39){
+  digitalWrite(8,HIGH);
+ }else{
+  digitalWrite(8,LOW);
+ }
+
+ if(conv < 3){
+  digitalWrite(7,HIGH);
+ }else{
+  digitalWrite(7,LOW);
+ }
+  
+
+  
+}
