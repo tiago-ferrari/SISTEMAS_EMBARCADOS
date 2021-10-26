@@ -1,0 +1,133 @@
+int pot1 = 1;
+int pot2 = 2;
+int placar1 = 0;
+int placar2 = 0;
+int led = 0;
+int habilitado = 1;
+
+void setup() {
+  
+
+  pinMode(13,OUTPUT);
+  pinMode(12,OUTPUT);
+  pinMode(11,OUTPUT);
+  pinMode(10,OUTPUT);
+  pinMode(9,OUTPUT);
+  pinMode(8,OUTPUT);
+  pinMode(7,OUTPUT);
+  pinMode(6,INPUT);
+  pinMode(5,INPUT);
+  pinMode(4,INPUT);
+  pinMode(3,INPUT);
+  Serial.begin(9600);
+
+}
+
+void loop() {
+
+  pot1 = analogRead(A0);
+  pot2 = analogRead(A1);
+  
+  if(digitalRead(6) == HIGH && habilitado == 1){
+
+    while(digitalRead(6) == HIGH){
+      delay(15); 
+    }
+  
+    Serial.print(pot1);
+    Serial.print("      ");
+    Serial.print(pot2);
+
+    if(pot1 > pot2){
+      Serial.print("   Valor mais alto POT1: ");
+      Serial.println(pot1);
+    }else{
+      Serial.print("   Valor mais alto POT2: ");
+      Serial.println(pot2);
+      
+    }
+  }
+
+  if(digitalRead(5) == HIGH && habilitado == 1){
+    
+    while(digitalRead(5) == HIGH){
+      delay(15);  
+    }
+    placar1++;
+  }
+
+  if(digitalRead(4) == HIGH && habilitado == 1){
+    while(digitalRead(4) == HIGH){
+      delay(15); 
+    }
+    placar2++;
+  }
+
+  //Serial.print(placar1);
+  //Serial.print("      ");
+  //Serial.println(placar2);
+
+  if(placar1 > placar2){
+    
+    led = placar1;
+  }else{
+
+    led = placar2;
+  }
+
+ 
+
+  switch (led) {
+  case 1:
+    digitalWrite(13,HIGH);
+    break;
+  case 2:
+    digitalWrite(13,HIGH);
+    digitalWrite(12,HIGH);
+    break;
+  case 3:
+    digitalWrite(13,HIGH);
+    digitalWrite(12,HIGH);
+    digitalWrite(11,HIGH);
+    break;
+  case 4:
+    digitalWrite(13,HIGH);
+    digitalWrite(12,HIGH);
+    digitalWrite(11,HIGH);
+    digitalWrite(10,HIGH);
+    break;
+  case 5:
+    digitalWrite(13,HIGH);
+    digitalWrite(12,HIGH);
+    digitalWrite(11,HIGH);
+    digitalWrite(10,HIGH);
+    digitalWrite(9,HIGH);
+
+    Serial.println("JOGO ENCERRADO");
+    habilitado = 0;
+    break;
+  default:
+    
+    break;
+}
+
+if(digitalRead(3) == HIGH){
+    while(digitalRead(3) == HIGH){
+      delay(15); 
+
+    }
+    Serial.println("RESET");
+    pot1 = 1;
+    pot2 = 2;
+    placar1 = 0;
+    placar2 = 0;
+    led = 0;
+    habilitado = 1;
+    digitalWrite(13,LOW);
+    digitalWrite(12,LOW);
+    digitalWrite(11,LOW);
+    digitalWrite(10,LOW);
+    digitalWrite(9,LOW);
+  }
+ 
+}
