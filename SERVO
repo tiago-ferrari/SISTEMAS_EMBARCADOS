@@ -1,0 +1,41 @@
+/* Sweep
+  by BARRAGAN <http://barraganstudio.com>
+  This example code is in the public domain.
+
+  modified 8 Nov 2013
+  by Scott Fitzgerald
+  http://www.arduino.cc/en/Tutorial/Sweep
+*/
+
+#include <Servo.h>
+
+Servo myservo;
+
+int pos = 0;    // variable to store the servo position
+
+void setup() {
+  myservo.attach(9);  // attaches the servo on pin 9 to the servo object
+  pinMode(8, INPUT);
+  pinMode(10, INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  Serial.println(pos);
+  
+  if (digitalRead(8) == HIGH) {
+    pos = pos + 10;
+
+    while (digitalRead(8) == HIGH)   delay(15);
+  }
+
+  if (digitalRead(10) == HIGH) {
+    pos = pos - 10;
+
+    while (digitalRead(10) == HIGH)  delay(15);
+  }
+
+  myservo.write(pos);              // tell servo to go to position in variable 'pos'
+
+
+}
